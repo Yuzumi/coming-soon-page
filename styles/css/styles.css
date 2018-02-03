@@ -37,6 +37,9 @@ body {
   border: 0;
   margin: 20px auto;
 }
+.container .description .description-content {
+  font-size: .7em;
+}
 .flex-container {
   display: flex;
   flex-flow: column nowrap;
