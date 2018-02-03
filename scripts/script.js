@@ -1,24 +1,28 @@
 
-const delay = 1000;
+const id            = (elementId) => document.getElementById(elementId);
+const setContent    = (element, text) => element.innerHTML = text;
 
-const id = (elementId) => document.getElementById(elementId);
+const delay         = 1000;
 
-let countdownDate = new Date('Feb 3, 2019 17:01:27').getTime();
+let timer = setInterval((() => {
+    const demo          = id('timer');
+    const countdownDate = new Date("Feb 3, 2019 15:37:25").getTime();
 
-let timer = setInterval(() => {
-    let now         = new Date().getTime();
-    let distance    = countdownDate - now;
-    let demo        = id('timer');
+    return () => {
+        let now         = new Date().getTime();
+        let distance    = countdownDate - now;
 
-    let days        = Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours       = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes     = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds     = Math.floor((distance % (1000 * 60)) / 1000);
+        let days        = Math.floor(distance / (1000 * 60 * 60 * 24)),
+            hours       = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+            minutes     = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+            seconds     = Math.floor((distance % (1000 * 60)) / 1000),
+            message     = `${days}d ${hours}h ${minutes}m ${seconds}s`
 
-    demo.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        setContent(demo, message);
 
-    if (distance < 0) {
-        clearInterval(timer);
-        demo.innerHTML = 'EXPIRED';
-    }
-}, delay);
+        if (distance < 0) {
+            clearInterval(timer);
+            setContent(demo, 'EXPIRED');
+        }
+    };
+})(), delay);
