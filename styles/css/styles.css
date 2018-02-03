@@ -1,21 +1,25 @@
 html {
   box-sizing: border-box;
 }
+
 html,
 body {
   height: 100%;
 }
+
 * {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
 }
+
 .bg-img {
   background-image: url('../../images/bg-img.jpeg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 .container {
   height: 100%;
   position: relative;
@@ -24,12 +28,15 @@ body {
   font-size: 1.5em;
   text-align: center;
 }
-.container > * {
+
+.container>* {
   margin: 1em;
 }
+
 .container .content .content-title {
   text-transform: uppercase;
 }
+
 .container .content .separator {
   width: 50%;
   height: 3px;
@@ -37,20 +44,25 @@ body {
   border: 0;
   margin: 20px auto;
 }
+
 .container .description .description-content {
   font-size: .7em;
 }
+
 .flex-container {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
 }
+
 .flex-container .logo {
   align-self: flex-start;
 }
+
 .flex-container .content {
   align-self: center;
 }
+
 .flex-container .description {
   align-self: center;
 }
